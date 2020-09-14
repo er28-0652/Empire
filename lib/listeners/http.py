@@ -71,7 +71,7 @@ class Listener(object):
             'Launcher': {
                 'Description': 'Launcher string.',
                 'Required': True,
-                'Value': 'powershell -noP -sta -w 1 -enc '
+                'Value': 'powershell -exec bypass -Noninteractive -windowstyle hidden -e '
             },
             'StagingKey': {
                 'Description': 'Staging key for initial agent negotiation.',
